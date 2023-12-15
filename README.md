@@ -1,6 +1,6 @@
 <h1 align="center">Cosmos Executable 🌌</h1>
 
-> Cosmos Executable is a utility for creating and running executable files in a Cosmos operating system, implemented in AuraOS for now. It uses Lua 5.2 for scripting, ZIP for data compression in executables.
+> Cosmos Executable is a utility for creating and running executable files in a Cosmos operating system, implemented in AuraOS for now. It uses Lua 5.2 for scripting and ZIP for data compression.
 
 ## Usage
 
