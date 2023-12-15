@@ -18,8 +18,6 @@ CosmosExecutableBuilder.exe <source_directory> <output_cexe_file>
 - `<source_directory>`: Directory containing your Lua source files.
 - `<output_cexe_file>`: The output CEXE file name.
 
-For more information on how to run and manage executables within Cosmos, please refer to the [Cosmos Documentation](https://cosmosos.github.io/).
-
 ## Authors
 
 👤 **[@valentinbreiz](https://github.com/valentinbreiz)**
