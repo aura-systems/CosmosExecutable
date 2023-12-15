@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CosmosExecutable": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\valentinbreiz\\source\\repos\\CosmosExecutable\\CosmosExecutable\\bin\\Debug\\net6.0\\source C:\\Users\\valentinbreiz\\source\\repos\\CosmosExecutable\\CosmosExecutable\\bin\\Debug\\net6.0\\helloworld.cexe"
+    }
+  }
+}
