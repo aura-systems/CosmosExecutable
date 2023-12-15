@@ -6,7 +6,7 @@
 
 To develop an executable:
 
-1. Place your Lua source files in the 'source' folder.
+1. Place your Lua source files (only main.lua for now) in the 'source' folder.
 2. Use the Cosmos Executable builder to create your CEXE file.
 
 Here's how to create a CEXE file:
