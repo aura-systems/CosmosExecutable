@@ -43,22 +43,16 @@ namespace CEXEBuilder
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                 {
-                    string mainLuaPath = Path.Combine(sourceDirectory, "main.lua");
-
-                    // Vérifie si main.lua existe
-                    if (File.Exists(mainLuaPath))
+                    foreach (string filePath in Directory.GetFiles(sourceDirectory, "*", SearchOption.AllDirectories))
                     {
-                        // Crée une entrée pour main.lua dans l'archive ZIP
-                        var fileEntry = archive.CreateEntry("main.lua");
+                        string relativePath = Path.GetRelativePath(sourceDirectory, filePath);
+                        var fileEntry = archive.CreateEntry(relativePath);
+
                         using (var entryStream = fileEntry.Open())
-                        using (var fileStream = File.OpenRead(mainLuaPath))
+                        using (var fileStream = File.OpenRead(filePath))
                         {
                             fileStream.CopyTo(entryStream);
                         }
-                    }
-                    else
-                    {
-                        throw new FileNotFoundException("main.lua not found in source directory.");
                     }
                 }
 
@@ -66,19 +60,16 @@ namespace CEXEBuilder
             }
         }
 
+
         private static byte[] CreateCEXEContent(byte[] zipContent)
         {
             Console.WriteLine("Creating Cosmos Executable...");
 
             byte[] cexeContent = new byte[SignatureSize + ArchiveSizeLength + zipContent.Length];
 
-            // Write the signature
             Array.Copy(Encoding.ASCII.GetBytes(ExpectedSignature), cexeContent, SignatureSize);
-
-            // Write the archive size
             Array.Copy(BitConverter.GetBytes(zipContent.Length), 0, cexeContent, SignatureSize, ArchiveSizeLength);
 
-            // Write the zip content
             Array.Copy(zipContent, 0, cexeContent, SignatureSize + ArchiveSizeLength, zipContent.Length);
 
             return cexeContent;
