@@ -1,7 +1,4 @@
-local function main()
-    print("Hello from Lua 5.2!")
-end
+local test2 = require "test2"
 
-return {
-    main = main,
-}
+print("hello from main.lua")
+test2.test2()
