@@ -24,10 +24,18 @@ namespace CEXEBuilder
 
             try
             {
+                Console.WriteLine(@"   ____                              _____          
+  / ___|___  ___ _ __ ___   ___  ___| ____|_  _____ 
+ | |   / _ \/ __| '_ ` _ \ / _ \/ __|  _| \ \/ / _ \
+ | |__| (_) \__ \ | | | | | (_) \__ \ |___ >  <  __/
+  \____\___/|___/_| |_| |_|\___/|___/_____/_/\_\___| generator v0.1
+                                                    ");
+
                 byte[] zipContent = CreateZipContent(sourceDirectory);
                 byte[] cexeContent = CreateCEXEContent(zipContent);
+                Console.WriteLine("Writing file to " + outputCEXEFile + "...");
                 File.WriteAllBytes(outputCEXEFile, cexeContent);
-                Console.WriteLine("CEXE file created successfully.");
+                Console.WriteLine("Cosmos Executable file created successfully.");
             }
             catch (Exception ex)
             {
